@@ -1,30 +1,27 @@
 name: publish 🚀
 
-on: 
-workflow_dispatch:
+on:
+  workflow_dispatch:
     push:
-        branches: 
-          -main
+      branches:
+        - main
+
 jobs:
   publish:
-      run-on:ubuntu-latest
-  steps:
-  -name: Setup .NET
-    uses:actions/checkout@v3
-    with: 
-      dotnet-version:"6.0.x"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup .NET
+        uses: actions/checkout@v3
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "6.0.x"
 
-    -name: Restore
-     run: dotnet restore ./Basic_crud.sln
+      - name: Restore
+        run: dotnet restore ./Basic_crud.sln
 
-     -name: Build
-      run: dotnet build ./Basic_crud.sln --configuration Release --no-restore
+      - name: Build
+        run: dotnet build ./Basic_crud.sln --configuration Release --no-restore
 
-      -name: Publish
-       run: dotnet publish ./basic_crud.sln --configuration Release --no-build
-
-       
-      
-    
-
-    
+      - name: Publish
+        run: dotnet publish ./basic_crud.sln --configuration Release --no-build
