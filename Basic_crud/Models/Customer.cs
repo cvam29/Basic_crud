@@ -11,9 +11,9 @@ namespace Basic_crud.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; } = string.Empty;
         [Required]
-        public string City { get; set; }
+        public string City { get; set; } = string.Empty;
         [Required]
-        public string Phone { get; set; }
+        public string Phone { get; set; } = string.Empty;
 
     }
 }
