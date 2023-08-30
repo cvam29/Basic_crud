@@ -4,6 +4,7 @@ namespace Basic_crud.Models
 {
     public class Customer
     {
+       //primary Key
         [Key]
         public int Id { get; set; }
         [Required]
