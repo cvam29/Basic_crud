@@ -24,4 +24,4 @@ jobs:
         run: dotnet build ./Basic_crud.sln --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish ./basic_crud.sln --configuration Release --no-build
+        run: dotnet publish ./Basic_crud.sln --configuration Release --no-build
